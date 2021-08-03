@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/advancesearch.dart';
+import 'package:pokedex/main.dart';
 import 'package:pokedex/scanpokemon.dart';
 
 class Navigationdrawer extends StatelessWidget {
@@ -15,6 +16,10 @@ class Navigationdrawer extends StatelessWidget {
       case 1:
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => Scanpokemon()));
+        break;
+      case 2:
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Homepage(type1: "None", type2: "None")));
         break;
     }
   }
@@ -48,6 +53,18 @@ class Navigationdrawer extends StatelessWidget {
             ),
             SizedBox(
               height: 50,
+            ),
+            ListTile(
+              leading: Icon(Icons.search),
+              title: Text(
+                "Kanto Pokedex",
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              onTap: () => _openPage(context, 2),
+            ),
+            SizedBox(
+              height: 20,
             ),
             ListTile(
               leading: Icon(Icons.search),
